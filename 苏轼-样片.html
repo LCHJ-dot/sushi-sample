@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>他们是怎么熬过来的 · 01 苏轼 · 样片</title>
+<style>
+:root{ --paper:#efe9dc; --ink:#2a2724; --ink2:#6b655c; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f4f2ec;color:var(--ink);
+  font-family:"Songti SC","STSong","SimSun",Georgia,serif;
+  padding:24px 18px 60px;line-height:1.8}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:20px;font-weight:600;letter-spacing:.5px}
+.sub{font-size:12.5px;color:var(--ink2);margin-top:6px;letter-spacing:.3px}
+
+.stage{position:relative;width:100%;aspect-ratio:16/9;margin:18px 0 14px;
+  background:var(--paper);border:1px solid #d8d0be;border-radius:4px;
+  overflow:hidden;box-shadow:0 2px 18px rgba(60,50,35,.13)}
+.scene{position:absolute;inset:0;opacity:0;transition:opacity 1.3s ease}
+.scene.on{opacity:1}
+.scene svg{width:100%;height:100%;display:block}
+
+.art{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;
+  filter:saturate(.9) contrast(.97) brightness(.99)}
+.kb0{animation:kb0 30s ease-out forwards}
+.kb1{animation:kb1 30s ease-out forwards}
+.kb2{animation:kb2 38s ease-out forwards}
+.kb3{animation:kb3 24s linear forwards}
+.kb4{animation:kb4 14s ease-out forwards}
+@keyframes kb0{from{transform:scale(1) translate(0,0)}to{transform:scale(1.10) translate(-1.4%,-1.8%)}}
+@keyframes kb1{from{transform:scale(1.05) translateY(0)}to{transform:scale(1.14) translateY(-2.2%)}}
+@keyframes kb2{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+@keyframes kb3{from{transform:scale(1.16) translateX(-3.2%)}to{transform:scale(1.16) translateX(3.2%)}}
+@keyframes kb4{from{transform:scale(1.04)}to{transform:scale(1.13)}}
+
+/* 墨在纸上洇开 */
+.ink{animation:inkIn 3.6s ease-out both}
+.ink2{animation:inkIn 4.4s ease-out both}
+.ink3{animation:inkIn 5.2s ease-out both}
+@keyframes inkIn{from{opacity:0;transform:scale(1.06) translateY(10px)}to{transform:scale(1) translateY(0)}}
+.lamp{animation:breathe 6.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.82}50%{opacity:1}}
+
+.tone{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(rgba(94,74,46,.10),rgba(60,48,30,.16));mix-blend-mode:multiply}
+.tone.deep{background:linear-gradient(rgba(30,26,20,.16),rgba(24,20,15,.30))}
+.papertex{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.38}
+.vign{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 50%,rgba(45,36,24,.30) 100%)}
+
+.rain{position:absolute;inset:-10%;pointer-events:none;opacity:.30}
+.rain i{position:absolute;width:1px;height:82px;
+  background:linear-gradient(to bottom,rgba(70,68,62,0),rgba(70,68,62,.5));
+  animation:fall 1.15s linear infinite}
+@keyframes fall{from{transform:translateY(-100px)}to{transform:translateY(580px)}}
+
+.caption{position:absolute;left:0;right:0;bottom:8.5%;display:flex;justify-content:center;pointer-events:none}
+.caption span{display:inline-block;max-width:74%;padding:12px 22px;
+  background:rgba(243,238,227,.9);border-radius:3px;
+  font-size:clamp(15px,2.05vw,27px);line-height:1.85;letter-spacing:1.5px;
+  color:var(--ink);opacity:0;transform:translateY(10px);
+  transition:opacity .5s ease,transform .5s ease}
+.caption span.on{opacity:1;transform:translateY(0)}
+.caption span.poem{writing-mode:vertical-rl;background:rgba(243,238,227,.92);
+  padding:22px 16px;font-size:clamp(17px,2.3vw,31px);letter-spacing:5px;line-height:2.1}
+
+.mark{position:absolute;right:4.5%;bottom:6%;font-size:12px;color:#efe9dc;
+  letter-spacing:3px;opacity:0;transition:opacity .8s ease;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.mark.on{opacity:.9}
+.credit{font-size:11.5px;color:#e6dfd0;position:absolute;left:4.5%;bottom:5.5%;
+  letter-spacing:1px;opacity:0;transition:opacity .8s ease;text-shadow:0 1px 5px rgba(0,0,0,.7)}
+.credit.on{opacity:.72}
+
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+button{font:inherit;font-size:13.5px;padding:9px 20px;border-radius:6px;cursor:pointer;
+  border:1px solid #c9c0ab;background:#fff;color:var(--ink);letter-spacing:1px}
+button:hover{background:#f6f2ea}
+button.primary{background:var(--ink);border-color:var(--ink);color:#f4f1ea}
+button.primary:hover{background:#3d3833}
+.hintbar{font-size:12.5px;color:var(--ink2);margin-top:4px;min-height:20px}
+.speed{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink2)}
+.speed input{width:110px}
+.note{background:#fff;border:1px solid #e2dbc9;border-radius:8px;padding:18px 22px;margin-top:22px;font-size:13.5px}
+.note h3{font-size:14px;margin-bottom:10px;font-weight:600}
+.note ul{margin-left:20px}
+.note li{margin-bottom:6px}
+.note code{background:#f2eee4;padding:1px 5px;border-radius:3px;font-size:12.5px}
+
+/* 纯净播放模式：只留画面，铺满视口，用于渲染成片 */
+body.clean{padding:0;background:#000;overflow:hidden}
+body.clean .wrap{max-width:none}
+body.clean h1,body.clean .sub,body.clean .controls,body.clean .note{display:none}
+body.clean .stage{margin:0;border:0;border-radius:0;
+  width:100vw;height:100vh;aspect-ratio:auto;box-shadow:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>他们是怎么熬过来的 · 第一集：苏轼</h1>
+<div class="sub">样片片段　① 钩子 → ② 落地 → ③ 绝境开头　　公有领域真古画 + 配音</div>
+
+<div class="stage" id="stage">
+
+  <svg class="papertex" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="7"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+
+  <!-- L0 钩子：墨在宣纸上洇开 + 雨 -->
+  <div class="scene" id="s0"><div class="kb0"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="inkA" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.010" numOctaves="4" seed="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="72" xChannelSelector="R" yChannelSelector="G"/>
+        <feGaussianBlur stdDeviation="18"/>
+      </filter>
+      <filter id="inkB" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="4" seed="6" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="44" xChannelSelector="R" yChannelSelector="G"/>
+        <feGaussianBlur stdDeviation="26"/>
+      </filter>
+      <radialGradient id="lamp0">
+        <stop offset="0" stop-color="#f5cd85" stop-opacity=".92"/>
+        <stop offset="0.45" stop-color="#e8b45c" stop-opacity=".30"/>
+        <stop offset="1" stop-color="#e8b45c" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1600" height="900" fill="#efe9dc"/>
+
+    <g class="ink" filter="url(#inkA)" opacity=".12" fill="#5d574b">
+      <path d="M-120 500 Q300 352 640 452 T1240 396 T1720 486 L1720 900 L-120 900 Z"/>
+    </g>
+    <g class="ink2" filter="url(#inkA)" opacity=".19" fill="#4a453c">
+      <path d="M-120 636 Q260 552 580 614 T1200 566 T1720 644 L1720 900 L-120 900 Z"/>
+    </g>
+    <g class="ink3" filter="url(#inkB)" opacity=".30" fill="#38332c">
+      <path d="M-120 786 Q400 732 900 774 T1720 762 L1720 900 L-120 900 Z"/>
+    </g>
+
+    <g stroke="#6a6459" stroke-width="1.4" fill="none" opacity=".16">
+      <path d="M140 806 Q470 792 830 806"/>
+      <path d="M320 844 Q640 830 1000 844"/>
+      <path d="M60 872 Q380 860 720 872"/>
+    </g>
+
+    <g transform="translate(1246,596)" class="lamp">
+      <circle r="150" fill="url(#lamp0)"/>
+      <circle r="8" fill="#f7d99a" opacity=".95"/>
+    </g>
+  </svg></div>
+    <div class="rain" id="rain"></div>
+    <div class="tone"></div>
+  </div>
+
+  <!-- L1 落地：罗稚川《古木寒鸦图》 -->
+  <div class="scene" id="s1">
+    <div class="art kb1" style="background-image:url('frames/l2_crows.jpg');background-position:50% 58%"></div>
+    <div class="tone deep"></div>
+    <div class="credit">古木寒鸦图 · 元 罗稚川</div>
+  </div>
+
+  <!-- L2 绝境：南宋《鱼乐图》册页 -->
+  <div class="scene" id="s2">
+    <div class="art kb2" style="background-image:url('frames/l3_fish.jpg');background-position:50% 50%"></div>
+    <div class="tone deep"></div>
+    <div class="credit">鱼乐图 · 南宋 册页</div>
+  </div>
+
+  <!-- L3 黄州：耕织图 · 秧马 -->
+  <div class="scene" id="s3">
+    <div class="art kb3" style="background-image:url('frames/l4_rice.jpg');background-position:50% 42%"></div>
+    <div class="tone"></div>
+    <div class="credit">耕织图 · 农事绘本</div>
+  </div>
+
+  <!-- L4 压轴：苏轼像 -->
+  <div class="scene" id="s4">
+    <div class="art kb4" style="background-image:url('frames/l5_sushi.jpg');background-position:50% 84%"></div>
+    <div class="tone"></div>
+    <div class="credit">东坡居士像</div>
+  </div>
+
+  <div class="vign"></div>
+  <div class="caption"><span id="cap"></span></div>
+  <div class="mark" id="mark">元丰二年 · 御史台狱</div>
+</div>
+
+<div class="controls">
+  <button class="primary" id="play">播放样片</button>
+  <button id="stop">停止</button>
+  <label class="speed">语速 <input type="range" id="rate" min="0.6" max="1.1" step="0.02" value="0.84"><span id="ratev">0.84</span></label>
+  <span class="hintbar" id="stat">9 个语气段 · 17 句 · 约 62 秒</span>
+</div>
+
+<div class="note">
+  <h3>这一版改了什么</h3>
+  <ul>
+    <li><b>第一幕重做了。</b>原来是 SVG 画的具象山水，确实显廉价。现在改成"墨在宣纸上洇开"：入场时三层墨色先后化开，只有雨丝、留白和远处一点灯火。不画具体的山，反而更接近"你有没有过这样一天"的那种茫然。</li>
+    <li><b>配音更连贯。</b>段间呼吸从 340 毫秒压到 200，句间不再打断；只保留两处刻意留白（"他比他还惨"之后、"真的送了一条鱼"之后），该静的地方照静。</li>
+    <li><b>四张真古画分工不变</b>：寒鸦图配御史台狱，鱼乐图配狱中送鱼与绝命诗，耕织图配黄州开荒，苏轼立轴压轴收尾。左下角仍会淡入出处标注。</li>
+  </ul>
+</div>
+
+</div>
+
+<script>
+/* 按语气段落朗读：段内连读，段间才停顿。pause 为段后停顿（毫秒）。 */
+const PARAS = [
+  {scene:0, pause:200, sents:[
+    {t:"你有没有过这样一天。"},
+    {t:"你说的一句话，被人截出来传。传到最后，变成了另一个意思。"},
+    {t:"所有人都在议论你。没人问你，到底说了什么。"}]},
+  {scene:0, pause:1750, sents:[
+    {t:"公元一〇七九年，有个人遇到了一模一样的事。"},
+    {t:"他比你还惨。"}]},
+  {scene:1, pause:200, sents:[
+    {t:"他叫苏轼，四十四岁，当时已经是全国最有名的文人。"},
+    {t:"七月，他被抓进御史台的监狱，罪名是——写诗讥讽朝政。"}]},
+  {scene:1, pause:1050, sents:[
+    {t:"在那个叫乌台的地方，他关了一百三十天。"},
+    {t:"那一年，京城里有不少人觉得，他活不下来。"}]},
+  {scene:2, pause:200, sents:[
+    {t:"宋人笔记里记了一件事。"},
+    {t:"他在狱中和儿子约好：每天送饭，只送肉和菜。如果有一天送来的鱼，就是死讯到了。"}]},
+  {scene:2, pause:1700, sents:[
+    {t:"有一天，送饭的人弄错了，真的送了一条鱼。"}]},
+  {scene:2, pause:700, sents:[
+    {t:"他以为自己要死了。于是给弟弟苏辙写了两首诗："},
+    {t:"与君世世为兄弟，更结来生未了因。", poem:1}]},
+  {scene:3, pause:1400, sents:[
+    {t:"后来他没死。他被贬去黄州，一个很远的小地方。"},
+    {t:"四十四岁，从京城名人，变成戴罪之身。"}]},
+  {scene:4, pause:420, sents:[
+    {t:"这是他人生第一次，真正的归零。"}]},
+];
+
+/* 定时播放时间轴（用于录屏渲染）。由构建脚本按真实配音时长写入。 */
+const TIMELINE = [];
+
+const SCENE_COUNT=5;
+const scenes=Array.from({length:SCENE_COUNT},(_,i)=>document.getElementById('s'+i));
+const credits=Array.from({length:SCENE_COUNT},(_,i)=>document.querySelector('#s'+i+' .credit'));
+const cap=document.getElementById('cap');
+const mark=document.getElementById('mark');
+const stat=document.getElementById('stat');
+const rain=document.getElementById('rain');
+const rateEl=document.getElementById('rate');
+const rateV=document.getElementById('ratev');
+
+for(let i=0;i<70;i++){
+  const d=document.createElement('i');
+  d.style.left=(Math.random()*112-6)+'%';
+  d.style.top=(Math.random()*90)+'%';
+  d.style.animationDelay=(Math.random()*1.15).toFixed(2)+'s';
+  d.style.opacity=(0.30+Math.random()*0.45).toFixed(2);
+  rain.appendChild(d);
+}
+
+let running=false, voice=null, curScene=-1, curSent=-1;
+let timers=[];
+const clearTimers=()=>{ timers.forEach(clearTimeout); timers=[]; };
+const TTS = ('speechSynthesis' in window);
+
+function pickVoice(){
+  if(!TTS) return null;
+  const vs=speechSynthesis.getVoices()||[];
+  const zh=vs.filter(v=>/zh|cmn|Chinese|中文|普通话/i.test((v.lang||'')+' '+(v.name||'')));
+  const pref=['Yunxi','云希','Huihui','慧慧','Xiaoxiao','晓晓','Yaoyao','Kangkang','康康','Xiaoyi'];
+  for(const p of pref){
+    const f=zh.find(v=>new RegExp(p,'i').test(v.name||''));
+    if(f) return f;
+  }
+  return zh.find(v=>/zh-CN|cmn-Hans/i.test(v.lang||'')) || zh[0] || null;
+}
+if(TTS){ speechSynthesis.onvoiceschanged=()=>{ voice=pickVoice(); }; voice=pickVoice(); }
+
+function setScene(n){
+  if(n===curScene) return;
+  curScene=n;
+  scenes.forEach((el,i)=>{
+    el.classList.toggle('on',i===n);
+    if(i===n){
+      const kb=el.querySelector('.kb0,.kb1,.kb2,.kb3,.kb4');
+      if(kb){ kb.style.animation='none'; void kb.offsetWidth; kb.style.animation=''; }
+      const ink=el.querySelectorAll('.ink,.ink2,.ink3');
+      ink.forEach(g=>{ g.style.animation='none'; void g.offsetWidth; g.style.animation=''; });
+    }
+  });
+  credits.forEach((el,i)=>el&&el.classList.toggle('on',i===n));
+  mark.classList.toggle('on',n===1);
+}
+
+function paint(text,isPoem){
+  cap.classList.remove('on');
+  setTimeout(()=>{
+    cap.textContent=text;
+    cap.classList.toggle('poem',!!isPoem);
+    cap.classList.add('on');
+  },150);
+}
+
+function showSent(P,k){
+  if(k===curSent) return;
+  curSent=k;
+  const s=P.sents[k];
+  if(s) paint(s.t,s.poem);
+}
+
+function playPara(i){
+  if(!running) return;
+  if(i>=PARAS.length){ finish(); return; }
+  const P=PARAS[i];
+  setScene(P.scene);
+  curSent=-1;
+  showSent(P,0);
+  stat.textContent='第 '+(i+1)+' / '+PARAS.length+' 段';
+
+  const text=P.sents.map(s=>s.t).join('');
+  const bounds=[]; let acc=0;
+  for(const s of P.sents){ bounds.push([acc,acc+s.t.length]); acc+=s.t.length; }
+
+  const rate=parseFloat(rateEl.value);
+  let t=0;
+  for(let k=0;k<P.sents.length;k++){
+    const dur=Math.max(900,(P.sents[k].t.length/4.2)*1000/rate);
+    timers.push(setTimeout(()=>{ if(running) showSent(P,k); }, t));
+    t+=dur;
+  }
+
+  if(!TTS){
+    timers.push(setTimeout(()=>{ if(running) playPara(i+1); }, t+P.pause));
+    return;
+  }
+
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='zh-CN';
+  if(voice) u.voice=voice;
+  u.rate=rate; u.pitch=0.98; u.volume=1;
+
+  let live=false;
+  u.onboundary=(e)=>{
+    if(!live){ live=true; clearTimers(); }
+    if(!running) return;
+    const ci=(e.charIndex!==undefined?e.charIndex:0);
+    let idx=0;
+    for(let k=0;k<bounds.length;k++){ if(ci>=bounds[k][0]) idx=k; }
+    showSent(P,idx);
+  };
+  u.onend=()=>{ clearTimers(); if(running) setTimeout(()=>playPara(i+1), P.pause); };
+  u.onerror=()=>{ clearTimers(); if(running) setTimeout(()=>playPara(i+1), P.pause); };
+  speechSynthesis.speak(u);
+}
+
+function finish(){
+  running=false; clearTimers();
+  stat.textContent='播放完毕 · 17 句';
+  setTimeout(()=>cap.classList.remove('on'), 1200);
+}
+
+/* 定时模式：按 TIMELINE 播放画面与字幕，不发声音。用于渲染成片。 */
+function playTimeline(){
+  setScene(TIMELINE[0].scene);
+  TIMELINE.forEach(ev=>{
+    timers.push(setTimeout(()=>{
+      setScene(ev.scene);
+      paint(ev.s, ev.poem);
+    }, ev.t*1000));
+  });
+  const last=TIMELINE[TIMELINE.length-1].t;
+  timers.push(setTimeout(()=>{ cap.classList.remove('on'); }, (last+3.2)*1000));
+}
+
+rateEl.addEventListener('input',()=>{ rateV.textContent=parseFloat(rateEl.value).toFixed(2); });
+
+document.getElementById('play').addEventListener('click',()=>{
+  if(running) return;
+  voice=pickVoice()||voice;
+  if(!voice && TTS){ stat.textContent='未找到中文语音包，将用默认音色'; }
+  running=true; curScene=-1;
+  clearTimers();
+  if(TTS){
+    speechSynthesis.cancel();
+    const w=new SpeechSynthesisUtterance('　');
+    w.volume=0; if(voice) w.voice=voice;
+    speechSynthesis.speak(w);
+  }
+  setTimeout(()=>playPara(0), 260);
+});
+
+document.getElementById('stop').addEventListener('click',()=>{
+  running=false; clearTimers();
+  if(TTS) speechSynthesis.cancel();
+  cap.classList.remove('on');
+  credits.forEach(el=>el&&el.classList.remove('on'));
+  stat.textContent='已停止';
+});
+
+window.addEventListener('load',()=>{
+  const q=new URLSearchParams(location.search);
+  if(q.get('clean')==='1'){ document.body.classList.add('clean'); }
+  if(q.get('auto')==='1' && TIMELINE.length){
+    running=true;
+    stat.textContent='定时播放 · '+TIMELINE.length+' 个切点';
+    setTimeout(playTimeline, 400);
+  }
+});
+</script>
+</body>
+</html>
